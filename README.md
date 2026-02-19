@@ -1,2 +1,2 @@
 # Tetris
-A little tetris game made with python and dash for study porpouses
+A little tetris game made with python and dash for study purposes
