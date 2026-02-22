@@ -35,3 +35,36 @@ STATE_IDLE = "idle"
 STATE_RUNNING = "running"
 STATE_PAUSED = "paused"
 STATE_OVER = "gameover"
+
+# Initial state 
+INITIAL_GAME_STATE = {
+    "board": [[0] * BOARD_WIDTH for _ in range(BOARD_HEIGHT)],  # uses the constants above
+    "current_piece": {
+        "shape": "T",
+        "rotation": 0,
+        "x": 3,
+        "y": 0,
+        "color_id": 3
+    },
+    "next_piece": "I",
+    "held_piece": None,
+    "can_hold": True,
+    "score": 0,
+    "level": 1,
+    "lines_cleared": 0,
+    "status": STATE_IDLE,
+    "tick": 0
+}
+
+# Key bindings
+KEY_ACTIONS = {
+    "ArrowLeft":  "move_left",
+    "ArrowRight": "move_right",
+    "ArrowDown":  "soft_drop",
+    "ArrowUp":    "rotate_clockwise",
+    "z":          "rotate_counter",
+    " ":          "hard_drop",
+    "c":          "hold_piece",
+    "p":          "pause",
+    "Escape":     "pause",
+}
