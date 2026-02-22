@@ -1,0 +1,9 @@
+src/tests/unity/__pycache__/test_scoring.cpython-312-pytest-9.0.2.pyc
+src/tests/__pycache__/__init__.cpython-312.pyc
+src/tests/e2e/__pycache__/__init__.cpython-312.pyc
+src/tests/e2e/__pycache__/test_ui.cpython-312-pytest-9.0.2.pyc
+src/tests/integration/__pycache__/__init__.cpython-312.pyc
+src/tests/integration/__pycache__/test_callback.cpython-312-pytest-9.0.2.pyc
+src/tests/unity/__pycache__/__init__.cpython-312.pyc
+src/tests/unity/__pycache__/test_engine.cpython-312-pytest-9.0.2.pyc
+src/tests/unity/__pycache__/test_piece.cpython-312-pytest-9.0.2.pyc
