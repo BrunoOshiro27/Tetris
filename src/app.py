@@ -1,12 +1,15 @@
-import dash
+from dash_extensions.enrich import DashProxy, MultiplexerTransform
 from components.layout import create_layout
+from callbacks import register_callbacks
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = DashProxy(
+    __name__,
+    transforms=[MultiplexerTransform()],
+    suppress_callback_exceptions=True,
+)
 app.layout = create_layout()
 
-# imported here so callbacks register against `app`
-# created in the next step
-# import callbacks  # noqa: E402, F401
+register_callbacks(app)
 
 if __name__ == "__main__":
     app.run(debug=True)

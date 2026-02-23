@@ -18,27 +18,11 @@ def render_cell(color_id, is_ghost=False):
 
 def render_board(state):
     """
-    Renders the full 20x10 game board as a grid of divs.
-    Overlays the current piece and ghost piece on top of the landed cells.
+    Renders the full 10x8 game board as a grid of divs.
     """
     import copy
     board = copy.deepcopy(state["board"])
     cp    = state["current_piece"]
-
-    # ── Overlay ghost piece ───────────────────────────────────────────────────
-    ghost_y = get_ghost_position(
-        state["board"], cp["shape"], cp["x"], cp["y"], cp["rotation"]
-    )
-    ghost_matrix = get_piece_matrix(cp["shape"], cp["rotation"])
-
-    ghost_cells = set()
-    for row_i, row in enumerate(ghost_matrix):
-        for col_i, cell in enumerate(row):
-            if cell:
-                gx = cp["x"] + col_i
-                gy = ghost_y + row_i
-                if 0 <= gx < BOARD_WIDTH and 0 <= gy < BOARD_HEIGHT:
-                    ghost_cells.add((gy, gx))
 
     # ── Overlay current piece ─────────────────────────────────────────────────
     piece_cells = set()
@@ -58,8 +42,7 @@ def render_board(state):
     for row_i in range(BOARD_HEIGHT):
         cells = []
         for col_i in range(BOARD_WIDTH):
-            is_ghost = (row_i, col_i) in ghost_cells and (row_i, col_i) not in piece_cells
-            cells.append(render_cell(board[row_i][col_i], is_ghost=is_ghost))
+            cells.append(render_cell(board[row_i][col_i]))
         rows.append(html.Div(children=cells, style={"display": "block", "lineHeight": "0"}))
 
     return html.Div(
@@ -68,7 +51,6 @@ def render_board(state):
         style={
             "width":   f"{BOARD_WIDTH * CELL_SIZE}px",
             "height":  f"{BOARD_HEIGHT * CELL_SIZE}px",
-            "border":  "3px solid #444",
         }
     )
 

@@ -1,6 +1,6 @@
 # Board dimensions
-BOARD_WIDTH = 10
-BOARD_HEIGHT = 20
+BOARD_WIDTH = 16
+BOARD_HEIGHT = 25
 CELL_SIZE = 35          # pixels per cell
 
 # Game timing
