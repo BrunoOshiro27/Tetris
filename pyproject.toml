@@ -44,8 +44,11 @@ warn_unused_ignores = true
 # ── Testing ───────────────────────────────────────────────────────────────────
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["src/tests"]
 addopts = "-v --tb=short --cov=game --cov-report=term-missing --cov-fail-under=80"
+markers = [
+    "e2e: marks tests as end-to-end (deselect with '-m not e2e')",
+]
 
 [tool.coverage.run]
 source = ["game"]
